@@ -1,20 +1,20 @@
 package com.sega.gistexplorer.view.adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
 import com.sega.gistexplorer.R;
-import com.sega.gistexplorer.model.File;
 import com.sega.gistexplorer.model.Gist;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 import androidx.recyclerview.widget.RecyclerView;
-
 
 public class GistRecyclerAdapter extends RecyclerView.Adapter<GitsRecyclerViewHolder> {
 
@@ -49,7 +49,7 @@ public class GistRecyclerAdapter extends RecyclerView.Adapter<GitsRecyclerViewHo
         holder.login.setText(gist.getOwner().getLogin());
         holder.files.setText(holder.mView.getResources().getString(R.string.file,  firstFile));
         holder.description.setText(gist.getDescription());
-        holder.created.setText(holder.mView.getResources().getString(R.string.created,  gist.getCreated().toString()));
+        holder.created.setText(holder.mView.getResources().getString(R.string.created,  formatDate(gist.getCreated())));
         holder.comments.setText(holder.mView.getResources().getString(R.string.comments,  String.valueOf(gist.getComments())));
         holder.bind(position, gists);
     }
@@ -65,6 +65,12 @@ public class GistRecyclerAdapter extends RecyclerView.Adapter<GitsRecyclerViewHo
 
     public List<Gist> getGists() {
         return gists;
+    }
+
+    private String formatDate(Date date){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMMM yyyy");
+        dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+        return dateFormat.format(date);
     }
 
 }

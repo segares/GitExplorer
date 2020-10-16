@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.GistDetailFragment">
 
+
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/abc_vector_test" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,14 +21,21 @@
 
         <ImageView
             android:id="@+id/avatar"
-            android:layout_width="@dimen/avatar_width"
-            android:layout_height="@dimen/avatar_height"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:src="@android:drawable/btn_star_big_on" />
 
         <TextView
             android:id="@+id/owner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp" />
+            android:textSize="40sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/fileList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/fragment_files">
+        </androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>
 </FrameLayout>

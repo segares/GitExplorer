@@ -5,7 +5,6 @@ import android.util.Log;
 import com.sega.gistexplorer.view.GistView;
 
 import java.util.Collections;
-import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;

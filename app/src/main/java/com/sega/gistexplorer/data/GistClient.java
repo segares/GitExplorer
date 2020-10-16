@@ -18,7 +18,6 @@ public class GistClient {
         return ourInstance;
     }
 
-    private GistClient() {
-    }
+    private GistClient() {}
 
 }
