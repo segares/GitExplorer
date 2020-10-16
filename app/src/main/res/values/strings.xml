@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">GistExplorer</string>
+    <string name="created">Created: %1$s</string>
+    <string name="file">File: %1$s</string>
+    <string name="comments">Comments:  %1$s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
