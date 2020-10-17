@@ -10,6 +10,7 @@
         android:id="@+id/avatar"
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -17,20 +18,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@android:drawable/btn_star_big_on"
-        tools:ignore="ContentDescription"/>
+        tools:ignore="ContentDescription" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="96dp"
+        android:baselineAligned="false"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/avatar"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        android:baselineAligned="false">
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -42,8 +43,8 @@
                 android:id="@+id/login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:textSize="18sp"
+                android:maxLines="1"
                 tools:text="John Doe" />
 
             <TextView
@@ -51,7 +52,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/comments"
-                android:layout_marginStart="16dp"
                 tools:text="Comments: 0" />
         </LinearLayout>
 
@@ -65,14 +65,14 @@
                 android:id="@+id/created"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/created"
-                tools:text="Created: 04-10-2018" />
+                tools:text="04-10-2018" />
 
             <TextView
                 android:id="@+id/files"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/file"
+                android:maxLines="1"
                 android:textStyle="bold"
                 tools:text="File: Hello World!" />
         </LinearLayout>
@@ -81,7 +81,7 @@
     <TextView
         android:id="@+id/description"
         android:layout_width="match_parent"
-        android:layout_height="31dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="96dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -90,6 +90,7 @@
         app:layout_constraintStart_toEndOf="@+id/avatar"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
+        android:maxLines="2"
         tools:text="This is the description about this Gist, it could be long or it could be short. That depends on how many character it have." />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

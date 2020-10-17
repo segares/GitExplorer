@@ -49,7 +49,7 @@ public class GistRecyclerAdapter extends RecyclerView.Adapter<GitsRecyclerViewHo
         holder.login.setText(gist.getOwner().getLogin());
         holder.files.setText(holder.mView.getResources().getString(R.string.file,  firstFile));
         holder.description.setText(gist.getDescription());
-        holder.created.setText(holder.mView.getResources().getString(R.string.created,  formatDate(gist.getCreated())));
+        holder.created.setText(formatDate(gist.getCreated()));
         holder.comments.setText(holder.mView.getResources().getString(R.string.comments,  String.valueOf(gist.getComments())));
         holder.bind(position, gists);
     }
