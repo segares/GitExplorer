@@ -4,7 +4,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.sega.gistexplorer.R;
 import com.sega.gistexplorer.model.Gist;
 
@@ -40,7 +39,6 @@ public class GitsRecyclerViewHolder extends RecyclerView.ViewHolder {
         if (position >= gistList.size()) return;
         itemView.setOnClickListener(view -> itemClick(position));
     }
-
 
     public void itemClick(int position){
         gistViewListener.onGistItemClick(position);

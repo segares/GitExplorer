@@ -24,19 +24,19 @@ public class GistPresenter {
     }
 
     public void startScheduledJob(){
-        Log.d("GistPresenter:", "Starting job.");
-        compositeDisposable.add(Observable
-                .interval(UPDATE_GIST_JOB_TIMER, TimeUnit.MINUTES)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                        repeat -> fetchGists(),
-                        error -> Log.e("Error:", error.getMessage())
-                ));
+        Log.d(this.getClass().getSimpleName(), "Starting job.");
+            compositeDisposable.add(Observable
+                    .interval(UPDATE_GIST_JOB_TIMER, TimeUnit.MINUTES)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(
+                            repeat -> fetchGists(),
+                            error -> Log.e(this.getClass().getSimpleName(), error.getMessage())
+                    ));
     }
 
     public void fetchGists(){
-        Log.d("GistPresenter:", "Fetching Gist.");
+        Log.d(this.getClass().getSimpleName(), "Fetching Gist.");
         ApiGistService gistApi = GistClient.getInstance().create(ApiGistService.class);
 
         compositeDisposable.add(gistApi.getPublicGists()
@@ -51,12 +51,13 @@ public class GistPresenter {
                         },
                         error -> {
                             view.error(error.getMessage());
-                            Log.e("Error:", error.getMessage());
+                            Log.e(this.getClass().getSimpleName(), error.getMessage());
                         }
                 ));
     }
 
     public void clearDisposable(){
+        Log.d(this.getClass().getSimpleName(), "Clearing disposable.");
         compositeDisposable.clear();
     }
 

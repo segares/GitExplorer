@@ -1,41 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.GistDetailFragment">
+    android:orientation="vertical"
+    android:weightSum="15">
 
+    <Spinner
+        android:id="@+id/fileName"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:singleLine="true"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        />
 
-    <ImageButton
-        android:id="@+id/backButton"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/abc_vector_test" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="12"
+        >
+
+        <TextView
+            android:id="@+id/fileContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </ScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="16dp"
-        android:orientation="vertical">
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/avatar"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@android:drawable/btn_star_big_on" />
-
-        <TextView
-            android:id="@+id/owner"
+        <ImageButton
+            android:id="@+id/backButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="40sp" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/fileList"
-            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/fragment_files">
-        </androidx.recyclerview.widget.RecyclerView>
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+
+        <ImageButton
+            android:id="@+id/homeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_baseline_home_24" />
+
+        <ImageButton
+            android:id="@+id/nextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_baseline_arrow_forward_24" />
     </LinearLayout>
-</FrameLayout>
+
+</LinearLayout>

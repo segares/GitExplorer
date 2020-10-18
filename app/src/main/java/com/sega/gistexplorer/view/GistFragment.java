@@ -26,8 +26,7 @@ public class GistFragment extends Fragment implements GistView, GistRecyclerAdap
     private RecyclerView recyclerView;
     private GistRecyclerAdapter gistRecyclerAdapter;
 
-    public GistFragment() {
-    }
+    public GistFragment() {}
 
     public static GistFragment newInstance() {
         GistFragment fragment = new GistFragment();
@@ -41,15 +40,11 @@ public class GistFragment extends Fragment implements GistView, GistRecyclerAdap
     }
 
     @Override
-    public void onStop() {
-        super.onStop();
-        presenter.clearDisposable();
-    }
-
-    @Override
     public void onPause() {
         super.onPause();
-        presenter.clearDisposable();
+        if (getActivity().isFinishing()) {
+            presenter.clearDisposable();
+        }
     }
 
     @Override
@@ -74,7 +69,7 @@ public class GistFragment extends Fragment implements GistView, GistRecyclerAdap
 
     @Override
     public void refreshGistTable(List<Gist> gists) {
-        Log.d("GistFragment:", "Refreshing table.");
+        Log.d(this.getClass().getSimpleName(), "Refreshing table.");
         if (gistRecyclerAdapter != null) {
             gistRecyclerAdapter.setGists(gists);
             gistRecyclerAdapter.notifyDataSetChanged();
@@ -90,7 +85,6 @@ public class GistFragment extends Fragment implements GistView, GistRecyclerAdap
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
         final SwipeRefreshLayout pullToRefresh = getView().findViewById(R.id.pullToRefresh);
         pullToRefresh.setOnRefreshListener(() -> {
             presenter.fetchGists();

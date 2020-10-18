@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="80dp"
-    android:layout_marginBottom="16dp">
+    android:layout_marginBottom="4dp"
+    android:background="@android:color/darker_gray">
 
     <ImageView
         android:id="@+id/avatar"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="96dp"
         android:baselineAligned="false"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -37,44 +37,57 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:weightSum="5">
 
             <TextView
                 android:id="@+id/login"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:singleLine="true"
                 android:textSize="18sp"
-                android:maxLines="1"
                 tools:text="John Doe" />
 
             <TextView
-                android:id="@+id/comments"
-                android:layout_width="wrap_content"
+                android:id="@+id/created"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/comments"
-                tools:text="Comments: 0" />
+                android:layout_marginEnd="8dp"
+                android:layout_weight="2"
+                android:gravity="end"
+                tools:text="04-10-2018" />
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/created"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="04-10-2018" />
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/files"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="3"
+                android:singleLine="true"
                 android:text="@string/file"
-                android:maxLines="1"
                 android:textStyle="bold"
                 tools:text="File: Hello World!" />
+
+            <TextView
+                android:id="@+id/comments"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="2"
+                android:gravity="end"
+                android:singleLine="true"
+                android:text="@string/comments"
+                tools:text="Comments: 0" />
+
         </LinearLayout>
     </LinearLayout>
 
@@ -84,13 +97,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="96dp"
         android:layout_marginEnd="16dp"
+        android:ellipsize="end"
+        android:maxLines="2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/avatar"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        android:maxLines="2"
         tools:text="This is the description about this Gist, it could be long or it could be short. That depends on how many character it have." />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
